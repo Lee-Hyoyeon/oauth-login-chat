@@ -10,7 +10,7 @@ function App() {
 
     useEffect(() => {
         const path = window.location.pathname;
-
+        console.log(path);
         // /chat 경로에 접근했을 때만 모달을 띄움
         if (path === "/chat" && !document.cookie.includes("access_token")) {
             setShowModal(true);

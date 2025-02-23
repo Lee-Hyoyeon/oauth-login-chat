@@ -19,7 +19,7 @@ const Chat = () => {
             const message = event.data; // 서버로부터 받은 메시지
             setMessages((prevMessages) => [
                 ...prevMessages,
-                { text: message, sender: "other" },
+                { text: message, sender: "other" }
             ]);
         };
         setWs(socket);
@@ -35,7 +35,7 @@ const Chat = () => {
                 const accessToken = document.cookie.match(
                     /(?:^|;)\s*access_token=([^;]+)/
                 );
-
+                console.log(accessToken);
                 // 엑세스토큰이 없으면 바로 리턴
                 if (!accessToken || !accessToken[1]) {
                     console.error("엑세스토큰이 없습니다.");
@@ -46,8 +46,8 @@ const Chat = () => {
                     {
                         method: "GET",
                         headers: {
-                            Authorization: `Bearer ${accessToken[1]}`,
-                        },
+                            Authorization: `Bearer ${accessToken[1]}`
+                        }
                     }
                 );
                 if (!response.ok) {
@@ -75,7 +75,7 @@ const Chat = () => {
             // 내가 보낸 메시지 상태에 추가
             setMessages((prevMessages) => [
                 ...prevMessages,
-                { text: input, sender: "me" },
+                { text: input, sender: "me" }
                 // { text: `${username}: ${input}`, sender: "me" },
             ]);
             // 서버로 메시지 전송
@@ -96,7 +96,7 @@ const Chat = () => {
                 flexDirection: "column",
                 justifyContent: "center", // 세로 방향 중앙 정렬
                 alignItems: "center", // 가로 방향 중앙 정렬
-                margin: 0,
+                margin: 0
             }}
         >
             <h1>Chating </h1>
@@ -109,7 +109,7 @@ const Chat = () => {
                     padding: "2px",
                     float: "right",
                     fontSize: "13px",
-                    marginTop: "10px",
+                    marginTop: "10px"
                 }}
                 onClick={handleLogout}
             >
@@ -119,7 +119,7 @@ const Chat = () => {
                 style={{
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: "10%",
+                    marginTop: "10%"
                 }}
             >
                 <div
@@ -128,7 +128,7 @@ const Chat = () => {
                         height: "500px",
                         border: "1px solid lightgray",
                         borderRadius: "10px",
-                        padding: "10px",
+                        padding: "10px"
                     }}
                 >
                     {/* 받은 메세지 내용 */}
@@ -144,7 +144,7 @@ const Chat = () => {
                                         : "#D1F9C7",
                                 padding: "10px",
                                 margin: "5px",
-                                borderRadius: "10px",
+                                borderRadius: "10px"
                             }}
                         >
                             {message.text}
@@ -154,7 +154,7 @@ const Chat = () => {
                         style={{
                             display: "flex",
                             alignItems: "center", // 세로 방향 정렬
-                            justifyContent: "center", // 가로 방향 정렬
+                            justifyContent: "center" // 가로 방향 정렬
                         }}
                     >
                         {/* 입력 텍스트 창 */}
@@ -164,7 +164,7 @@ const Chat = () => {
                                 padding: "10px",
                                 margin: "5px",
                                 borderRadius: "10px",
-                                border: "1px solid gray",
+                                border: "1px solid gray"
                             }}
                             value={input}
                             onKeyDown={handleKeyDown}
@@ -178,7 +178,7 @@ const Chat = () => {
                                 alt="send"
                                 style={{
                                     width: "30px",
-                                    height: "30px",
+                                    height: "30px"
                                 }}
                             />
                         </Button>

@@ -53,9 +53,9 @@ const Login = () => {
                         {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json", // JSON 형식으로 요청
+                                "Content-Type": "application/json" // JSON 형식으로 요청
                             },
-                            body: JSON.stringify({ authCode }), // 권한 코드 전달
+                            body: JSON.stringify({ authCode }) // 권한 코드 전달
                         }
                     );
                     if (!response.ok) {
@@ -63,7 +63,7 @@ const Login = () => {
                     }
                     const data = await response.json(); // JSON 데이터로 파싱
                     const accessToken = data.access_token;
-                    console.log(accessToken);
+                    console.log("accessToken", accessToken);
                     document.cookie = `access_token=${accessToken}; path=/; max-age=900; SameSite=Strict`; //save cookie
 
                     // 쿠키가 특정 이름의 토큰 값을 포함하는지 확인
@@ -121,7 +121,7 @@ const Login = () => {
                 display: "flex",
                 justifyContent: "center",
                 marginTop: "10%",
-                height: "100%",
+                height: "100%"
             }}
         >
             {!showModal && (
@@ -133,7 +133,7 @@ const Login = () => {
                         style={{
                             width: "100px",
                             height: "100px",
-                            marginBottom: "30px",
+                            marginBottom: "30px"
                         }}
                     />
                     <Form.Group style={{ marginBottom: "20px" }}>
@@ -164,7 +164,7 @@ const Login = () => {
                             opacity: "83%",
                             padding: "10px",
                             fontSize: "20px",
-                            marginTop: "10px",
+                            marginTop: "10px"
                         }}
                         onClick={handleLogin}
                     >
